@@ -37,7 +37,9 @@ func (temp FahrenheitTemperatureProvider) GetFahrenheit() Fahrenheit {
 
 // adapter implementation from fahrenheit to celsius
 // implementing GetCelsius
-type FahrenheitToCelsiusAdapter struct{ TemperatureProvider FahrenheitTemperatureProvider }
+type FahrenheitToCelsiusAdapter struct {
+	TemperatureProvider FahrenheitTemperatureProvider
+}
 
 func (adapter FahrenheitToCelsiusAdapter) GetCelsius() Celsius {
 	celsius := Celsius(adapter.TemperatureProvider.GetFahrenheit()) - 32
