@@ -6,12 +6,12 @@ import (
 )
 
 type (
-	Celsius                      int
-	Fahrenheit                   int
-	CelsiusTemperaturerDisplayer struct{}
+	Celsius                     int
+	Fahrenheit                  int
+	CelsiusTemperatureDisplayer struct{}
 )
 
-func (displayer CelsiusTemperaturerDisplayer) Display(temperatureProvider InterfaceTemperatureProvider) {
+func (displayer CelsiusTemperatureDisplayer) Display(temperatureProvider InterfaceTemperatureProvider) {
 	log.Printf("Temperature in Celsius: %v", temperatureProvider.GetCelsius())
 }
 
