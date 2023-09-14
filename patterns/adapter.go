@@ -44,6 +44,7 @@ func (adapter FahrenheitToCelsiusAdapter) GetCelsius() Celsius {
 	return celsius
 }
 
+// main adapter usecase
 func Adapter() {
 	displayer := CelsiusTemperatureDisplayer{}
 
