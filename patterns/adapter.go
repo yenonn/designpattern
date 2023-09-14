@@ -34,6 +34,7 @@ func (temp RandomTemperatureProvider) GetFahrenheit() Fahrenheit {
 	return Fahrenheit(rand.Intn(max-min) + min)
 }
 
+// adapter implementation from fahrenheit to celsius
 type FahrenheitToCelsiusAdapter struct{ TemperatureProvider RandomTemperatureProvider }
 
 func (adapter FahrenheitToCelsiusAdapter) GetCelsius() Celsius {
