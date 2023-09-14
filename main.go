@@ -10,11 +10,11 @@ func main() {
 	fmt.Print("Hello Adapter design pattern in Golang!\n")
 	displayer := patterns.CelsiusTemperaturerDisplayer{}
 
-	staticTemperatureProvider := patterns.StaticTemperatureProvider{}
-	displayer.Display(staticTemperatureProvider)
+	celsiusTemperatureProvider := patterns.CelsiusTemperatureProvider{}
+	displayer.Display(celsiusTemperatureProvider)
 
 	adapter := patterns.FahrenheitToCelsiusAdapter{
-		TemperatureProvider: patterns.RandomTemperatureProvider{},
+		TemperatureProvider: patterns.FahrenheitTemperatureProvider{},
 	}
 
 	displayer.Display(adapter)

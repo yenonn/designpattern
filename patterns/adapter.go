@@ -19,23 +19,25 @@ type InterfaceTemperatureProvider interface {
 	GetCelsius() Celsius
 }
 
-type StaticTemperatureProvider struct{}
+type CelsiusTemperatureProvider struct{}
 
-func (temp StaticTemperatureProvider) GetCelsius() Celsius {
+func (temp CelsiusTemperatureProvider) GetCelsius() Celsius {
 	return 25
 }
 
 // completely different provider with another implementation
-type RandomTemperatureProvider struct{}
+type FahrenheitTemperatureProvider struct{}
 
-func (temp RandomTemperatureProvider) GetFahrenheit() Fahrenheit {
+func (temp FahrenheitTemperatureProvider) GetFahrenheit() Fahrenheit {
+	// random temperature
 	min := 50
 	max := 65
 	return Fahrenheit(rand.Intn(max-min) + min)
 }
 
 // adapter implementation from fahrenheit to celsius
-type FahrenheitToCelsiusAdapter struct{ TemperatureProvider RandomTemperatureProvider }
+// implementing GetCelsius
+type FahrenheitToCelsiusAdapter struct{ TemperatureProvider FahrenheitTemperatureProvider }
 
 func (adapter FahrenheitToCelsiusAdapter) GetCelsius() Celsius {
 	celsius := Celsius(adapter.TemperatureProvider.GetFahrenheit()) - 32
