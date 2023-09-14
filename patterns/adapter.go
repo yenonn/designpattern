@@ -54,6 +54,5 @@ func Adapter() {
 	adapter := FahrenheitToCelsiusAdapter{
 		TemperatureProvider: FahrenheitTemperatureProvider{},
 	}
-
 	displayer.Display(adapter)
 }
