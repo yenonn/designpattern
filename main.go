@@ -1,7 +1,18 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+
+	"github.com/yenonn/learn-patterns/patterns"
+)
 
 func main() {
-	fmt.Print("Learning design pattern in Go!")
+	fmt.Print("Hello Adapter design pattern in Golang!\n")
+	displayer := patterns.CelsiusTemperaturerDisplayer{}
+
+	staticTemperatureProvider := patterns.StaticTemperatureProvider{}
+	displayer.Display(staticTemperatureProvider)
+
+	randomTemperatureProvider := patterns.RandomTemperatureProvider{}
+	displayer.Display(randomTemperatureProvider)
 }
