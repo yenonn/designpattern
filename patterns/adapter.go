@@ -45,7 +45,7 @@ func (adapter FahrenheitToCelsiusAdapter) GetCelsius() Celsius {
 }
 
 func Adapter() {
-	displayer := CelsiusTemperaturerDisplayer{}
+	displayer := CelsiusTemperatureDisplayer{}
 
 	celsiusTemperatureProvider := CelsiusTemperatureProvider{}
 	displayer.Display(celsiusTemperatureProvider)
