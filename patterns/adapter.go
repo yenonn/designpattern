@@ -43,3 +43,16 @@ func (adapter FahrenheitToCelsiusAdapter) GetCelsius() Celsius {
 	celsius := Celsius(adapter.TemperatureProvider.GetFahrenheit()) - 32
 	return celsius
 }
+
+func Adapter() {
+	displayer := CelsiusTemperaturerDisplayer{}
+
+	celsiusTemperatureProvider := CelsiusTemperatureProvider{}
+	displayer.Display(celsiusTemperatureProvider)
+
+	adapter := FahrenheitToCelsiusAdapter{
+		TemperatureProvider: FahrenheitTemperatureProvider{},
+	}
+
+	displayer.Display(adapter)
+}
