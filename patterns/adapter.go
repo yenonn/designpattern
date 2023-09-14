@@ -12,7 +12,7 @@ type (
 )
 
 func (displayer CelsiusTemperaturerDisplayer) Display(temperatureProvider InterfaceTemperatureProvider) {
-	log.Printf("Temperaturer in Celsius: %v", temperatureProvider.GetCelsius())
+	log.Printf("Temperature in Celsius: %v", temperatureProvider.GetCelsius())
 }
 
 type InterfaceTemperatureProvider interface {
