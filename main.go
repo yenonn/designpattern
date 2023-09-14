@@ -13,6 +13,9 @@ func main() {
 	staticTemperatureProvider := patterns.StaticTemperatureProvider{}
 	displayer.Display(staticTemperatureProvider)
 
-	randomTemperatureProvider := patterns.RandomTemperatureProvider{}
-	displayer.Display(randomTemperatureProvider)
+	adapter := patterns.FahrenheitToCelsiusAdapter{
+		TemperatureProvider: patterns.RandomTemperatureProvider{},
+	}
+
+	displayer.Display(adapter)
 }

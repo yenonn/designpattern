@@ -7,6 +7,7 @@ import (
 
 type (
 	Celsius                      int
+	Fahrenheit                   int
 	CelsiusTemperaturerDisplayer struct{}
 )
 
@@ -24,10 +25,18 @@ func (temp StaticTemperatureProvider) GetCelsius() Celsius {
 	return 25
 }
 
+// completely different provider with another implementation
 type RandomTemperatureProvider struct{}
 
-func (temp RandomTemperatureProvider) GetCelsius() Celsius {
-	min := 20
-	max := 35
-	return Celsius(rand.Intn(max-min) + min)
+func (temp RandomTemperatureProvider) GetFahrenheit() Fahrenheit {
+	min := 50
+	max := 65
+	return Fahrenheit(rand.Intn(max-min) + min)
+}
+
+type FahrenheitToCelsiusAdapter struct{ TemperatureProvider RandomTemperatureProvider }
+
+func (adapter FahrenheitToCelsiusAdapter) GetCelsius() Celsius {
+	celsius := Celsius(adapter.TemperatureProvider.GetFahrenheit()) - 32
+	return celsius
 }
