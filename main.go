@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-	fmt.Print("Hello Adapter design pattern in Golang!\n")
-	fmt.Print("Adapter pattern")
+	fmt.Println("Hello Adapter design pattern in Golang!")
+	fmt.Println("Adapter pattern")
 	patterns.Adapter()
 }
