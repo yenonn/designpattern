@@ -10,4 +10,6 @@ func main() {
 	fmt.Println("Hello Adapter design pattern in Golang!")
 	fmt.Println("Adapter pattern")
 	patterns.Adapter()
+	fmt.Println("Bridge pattern")
+	patterns.Bridge()
 }
