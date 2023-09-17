@@ -12,4 +12,6 @@ func main() {
 	patterns.Adapter()
 	fmt.Println("Bridge pattern")
 	patterns.Bridge()
+	fmt.Println("Builder pattern")
+	patterns.Builder()
 }
