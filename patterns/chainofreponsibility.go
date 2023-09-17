@@ -43,10 +43,30 @@ func (a *AdditionalHandler) SetNextHandler(handler Handler) {
 	a.nextHandler = &handler
 }
 
+type SubstractionHandler struct {
+	nextHandler *Handler
+}
+
+func (s *SubstractionHandler) Handle(request Request) {
+	result := Request{number: request.number - 2}
+	log.Print(result)
+	if s.nextHandler != nil {
+		(*s.nextHandler).Handle(result)
+	}
+}
+
+func (s *SubstractionHandler) SetNextHandler(handler Handler) {
+	s.nextHandler = &handler
+}
+
 func ChainOfResponsibility() {
-	m := MultiplyHandler{}
-	nextHandler := AdditionalHandler{}
-	m.SetNextHandler(&nextHandler)
+	multiplyHandler := MultiplyHandler{}
+	additionHanddler := AdditionalHandler{}
+	subtractionHandler := SubstractionHandler{}
+	// chaining the responsibility
+	multiplyHandler.SetNextHandler(&additionHanddler)
+	additionHanddler.SetNextHandler(&subtractionHandler)
+
 	r := Request{number: 2}
-	m.Handle(r)
+	multiplyHandler.Handle(r)
 }
