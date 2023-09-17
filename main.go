@@ -25,4 +25,7 @@ func main() {
 
 	fmt.Println("Decorator pattern")
 	patterns.Decorator()
+
+	fmt.Println("Facade pattern")
+	patterns.Facade()
 }
