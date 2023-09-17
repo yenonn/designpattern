@@ -22,4 +22,7 @@ func main() {
 
 	fmt.Println("Composite pattern")
 	patterns.Composite()
+
+	fmt.Println("Decorator pattern")
+	patterns.Decorator()
 }
