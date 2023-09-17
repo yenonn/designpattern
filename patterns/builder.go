@@ -12,6 +12,10 @@ func NewHuman() human {
 	return human{}
 }
 
+func NewHumanWithFields(age int, height int, eyeColor string) human {
+	return human{age: age, height: height, eyeColor: eyeColor}
+}
+
 func (h human) withEyeColor(color string) human {
 	h.eyeColor = color
 	return h
