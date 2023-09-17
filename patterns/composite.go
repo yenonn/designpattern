@@ -46,10 +46,17 @@ func (branch Branch) Components() []NodeTree {
 func Composite() {
 	l0 := Leaf{label: "l0"}
 	l1 := Leaf{label: "l1"}
+	l2 := Leaf{label: "l2"}
+	l3 := Leaf{label: "l3"}
 
 	b0 := Branch{
 		label:      "b0",
-		components: []NodeTree{l0, l1},
+		components: []NodeTree{l2, l3},
 	}
-	log.Print(b0.Display())
+
+	b1 := Branch{
+		label:      "b1",
+		components: []NodeTree{l0, l1, b0},
+	}
+	log.Print(b1.Display())
 }
