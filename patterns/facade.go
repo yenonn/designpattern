@@ -14,10 +14,7 @@ func NewLengthChecker(length int) *LengthChecker {
 }
 
 func (l LengthChecker) IsValid(number string) bool {
-	if len(number) != l.StandardLength {
-		return false
-	}
-	return true
+	return len(number) == l.StandardLength
 }
 
 type PrefixValidator struct {
@@ -29,10 +26,7 @@ func NewPrefixValidator(prefix string) *PrefixValidator {
 }
 
 func (validator PrefixValidator) IsValid(number string) bool {
-	if strings.HasPrefix(number, validator.prefix) {
-		return true
-	}
-	return false
+	return strings.HasPrefix(number, validator.prefix)
 }
 
 type Service struct {
