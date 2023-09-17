@@ -1,8 +1,8 @@
-Learning Golang Design Pattern
-* Adapter
-* Bridge
-* Builder
-* Chain of Responsibility
-* Composite
-* Decorator
-* Facade
+# Learning Golang Design Pattern
+* [Adapter](patterns/adapter.go)
+* [Bridge]
+* [Builder]
+* [Chain of Responsibility]
+* [Composite]
+* [Decorator]
+* [Facade]
