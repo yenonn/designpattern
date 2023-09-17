@@ -5,4 +5,4 @@
 * pattern [Chain of Responsibility](/patterns/chainofresponsibility.go)
 * pattern [Composite](/patterns/composite.go)
 * pattern [Decorator](/patterns/decorator.go)
-* pattern [Facade](/patterns/facede.go)
+* pattern [Facade](/patterns/facade.go)
