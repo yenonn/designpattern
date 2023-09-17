@@ -14,4 +14,6 @@ func main() {
 	patterns.Bridge()
 	fmt.Println("Builder pattern")
 	patterns.Builder()
+	fmt.Println("Chain of resposibilty pattern")
+	patterns.ChainOfResponsibility()
 }
