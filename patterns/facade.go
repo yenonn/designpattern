@@ -28,12 +28,12 @@ func NewService(number int) *Service {
 }
 
 func (s Service) process(number string) {
-	if ok := s.lengthChecker.IsValid(number); ok {
-		log.Print(ok)
-	}
+	ok := s.lengthChecker.IsValid(number)
+	log.Print(ok)
 }
 
 func Facade() {
 	service := NewService(10)
 	service.process("0123456789")
+	service.process("123456789")
 }
