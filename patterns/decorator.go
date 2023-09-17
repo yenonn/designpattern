@@ -23,21 +23,21 @@ func DisplayStats(soldier InterfaceSoldier) {
 
 // Decorator
 type SoldierWithSword struct {
-	interfaceSoldier InterfaceSoldier
+	ISoldier InterfaceSoldier
 }
 
 func (s SoldierWithSword) Attack() int {
-	return s.interfaceSoldier.Attack() + 10
+	return s.ISoldier.Attack() + 10
 }
 
 func (s SoldierWithSword) Defense() int {
-	return s.interfaceSoldier.Defense() + 10
+	return s.ISoldier.Defense() + 10
 }
 
 func Decorator() {
 	basicSoldier := BasicSoldier{}
 	DisplayStats(basicSoldier)
 
-	soldierWithSword := SoldierWithSword{interfaceSoldier: basicSoldier}
+	soldierWithSword := SoldierWithSword{ISoldier: basicSoldier}
 	DisplayStats(soldierWithSword)
 }
