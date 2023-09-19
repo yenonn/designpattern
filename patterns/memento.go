@@ -1,6 +1,9 @@
 package patterns
 
-import "log"
+import (
+	"fmt"
+	"log"
+)
 
 type IMemento interface {
 	Restore() interface{}
@@ -18,6 +21,28 @@ func (memento PersonMemento) Restore() interface{} {
 	return memento.person
 }
 
+type CareTaker struct {
+	content []IMemento
+}
+
+func NewCareTaker() *CareTaker {
+	return &CareTaker{content: make([]IMemento, 0)}
+}
+
+func (c *CareTaker) Store(memento IMemento) {
+	c.content = append(c.content, memento)
+}
+
+func (c *CareTaker) Last() (IMemento, error) {
+	if len(c.content) == 0 {
+		return nil, fmt.Errorf("empty memento")
+	}
+	lastIndex := len(c.content) - 1
+	lastMemento := c.content[lastIndex]
+	c.content = c.content[:lastIndex]
+	return lastMemento, nil
+}
+
 type Person struct {
 	lifePoints int
 }
@@ -27,20 +52,26 @@ func NewPerson(lifePoints int) *Person {
 }
 
 func (p *Person) Display() {
-	log.Print("life point: ", p.lifePoints)
+	log.Print("display life point: ", p.lifePoints)
 }
 
 func (p *Person) Reduce(reducePoint int) {
+	log.Printf("reducing: %d", reducePoint)
 	p.lifePoints = p.lifePoints - reducePoint
 	log.Print("reduced life point: ", p.lifePoints)
+}
+
+type Originator interface {
+	Save() IMemento
+	Restore(IMemento)
 }
 
 type PersonOriginator struct {
 	person Person
 }
 
-func NewPersonOriginator(person Person) *PersonOriginator {
-	return &PersonOriginator{person: person}
+func NewPersonOriginator() *PersonOriginator {
+	return &PersonOriginator{person: *NewPerson(100)}
 }
 
 func (originator *PersonOriginator) Save() IMemento {
@@ -56,19 +87,49 @@ func (originator *PersonOriginator) Get() Person {
 	return originator.person
 }
 
+func (originator *PersonOriginator) Set(person Person) {
+	originator.person = person
+}
+
 func Memento() {
-	h := NewPerson(100)
-	h.Display()
-	h.Reduce(50)
-	h.Display()
+	// Init
+	c := NewCareTaker()
+	o := NewPersonOriginator()
 
-	o := NewPersonOriginator(*h)
-	m := o.Save()
+	// first memento
+	m0 := o.Save()
+	c.Store(m0)
 
-	h.Reduce(25)
-	h.Display()
+	h0 := o.Get()
+	h0.Display()
+	// reduce the life lifePoints
+	h0.Reduce(75)
 
-	o.Restore(m)
-	snapshotPerson := o.Get()
-	snapshotPerson.Display()
+	// second memento
+	o.Set(h0)
+	m1 := o.Save()
+	c.Store(m1)
+
+	// reduce again
+	h0.Reduce(50)
+	h0.Display() // negative value
+
+	// Now do the Restore
+	lastMemento, err := c.Last()
+	if err != nil {
+		log.Fatal("restore m1 is failing")
+	}
+	o.Restore(lastMemento)
+
+	restoreH1 := o.Get()
+	restoreH1.Display() // lifePoints: 25
+
+	lastMemento, err = c.Last()
+	if err != nil {
+		log.Fatal("restore m1 is failing")
+	}
+	o.Restore(lastMemento)
+
+	restoreH0 := o.Get()
+	restoreH0.Display() // lifePoints: 25
 }
