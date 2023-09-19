@@ -28,4 +28,7 @@ func main() {
 
 	fmt.Println("Facade pattern")
 	patterns.Facade()
+
+	fmt.Println("Memento pattern")
+	patterns.Memento()
 }
