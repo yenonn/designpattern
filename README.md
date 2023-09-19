@@ -6,3 +6,4 @@
 * pattern [Composite](/patterns/composite.go)
 * pattern [Decorator](/patterns/decorator.go)
 * pattern [Facade](/patterns/facade.go)
+* pattern [Memento](/patterns/memento.go)
