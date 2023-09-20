@@ -12,7 +12,7 @@
 ## output of the main.go
 ```
 ❯ go run main.go
-Hello Adapter design pattern in Golang!
+Hello design pattern in Golang!
 Adapter pattern
 2023/09/20 22:00:59 Temperature in Celsius: 25
 2023/09/20 22:00:59 Temperature in Celsius: 19
