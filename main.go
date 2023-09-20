@@ -31,4 +31,7 @@ func main() {
 
 	fmt.Println("Memento pattern")
 	patterns.Memento()
+
+	fmt.Println("Observer pattern")
+	patterns.Observer()
 }
