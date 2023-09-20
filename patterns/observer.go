@@ -1,6 +1,10 @@
 package patterns
 
-import "log"
+import (
+	"fmt"
+	"log"
+	"math/rand"
+)
 
 type IPublisher interface {
 	addSubscriber(subscriber ISubscriber)
@@ -52,6 +56,23 @@ func (s *subscriber) react(message string) {
 	log.Printf("ID: %s received message: %s", s.subId, message)
 }
 
+type autoGenerateSubcriberId struct {
+	subId string
+}
+
+func NewAutoGenerateSubscriberId() *autoGenerateSubcriberId {
+	randomSubId := fmt.Sprint(rand.Intn(100))
+	return &autoGenerateSubcriberId{subId: randomSubId}
+}
+
+func (a *autoGenerateSubcriberId) id() string {
+	return a.subId
+}
+
+func (a *autoGenerateSubcriberId) react(message string) {
+	log.Printf("Random ID: %s received message: %s", a.subId, message)
+}
+
 func Observer() {
 	p := NewPublisher()
 	s0 := NewSubscriber("123")
@@ -59,4 +80,10 @@ func Observer() {
 	p.addSubscriber(s0)
 	p.addSubscriber(s1)
 	p.broadcast("hello world")
+
+	p1 := NewPublisher()
+	for i := 0; i < 10; i++ {
+		p1.addSubscriber(NewAutoGenerateSubscriberId())
+	}
+	p1.broadcast("hello autogen")
 }
