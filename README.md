@@ -5,6 +5,7 @@
 * pattern [Chain of Responsibility](/patterns/chainofresponsibility.go)
 * pattern [Composite](/patterns/composite.go)
 * pattern [Decorator](/patterns/decorator.go)
+* pattern [Decorator 2](/patterns/decorator_example_2.go)
 * pattern [Facade](/patterns/facade.go)
 * pattern [Memento](/patterns/memento.go)
 * pattern [Observer](/patterns/observer.go) 
