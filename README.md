@@ -75,5 +75,4 @@ github.com/yenonn/learn-patterns/patterns.Observer
 github.com/yenonn/learn-patterns/patterns.Prototype
 2023/09/23 18:00:28 Publisher 902536f4-fb8c-4a74-b1e7-33687ee52b18 > hello
 2023/09/23 18:00:28 Publisher 902536f4-fb8c-4a74-b1e7-33687ee52b18 > hello from clone
-
 ```
