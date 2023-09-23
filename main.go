@@ -27,6 +27,7 @@ func main() {
 		patterns.Memento,
 		patterns.Observer,
 		patterns.Prototype,
+		patterns.Proxy,
 	}
 
 	for _, pattern := range patterns {
