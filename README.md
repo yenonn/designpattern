@@ -15,50 +15,65 @@
 ```bash
 ❯ go run main.go
 Hello design pattern in Golang!
-Adapter pattern
-2023/09/22 21:19:55 Temperature in Celsius: 25
-2023/09/22 21:19:55 Temperature in Celsius: 19
-Bridge pattern
+---
+github.com/yenonn/learn-patterns/patterns.Adapter
+2023/09/23 18:00:28 Temperature in Celsius: 25
+2023/09/23 18:00:28 Temperature in Celsius: 20
+---
+github.com/yenonn/learn-patterns/patterns.Bridge
 0.5519999999999999
 0.06400000000000002
-Builder pattern
-2023/09/22 21:19:55 {24 180 brown}
-Chain of resposibilty pattern
-2023/09/22 21:19:55 {4}
-2023/09/22 21:19:55 {6}
-2023/09/22 21:19:55 {4}
-Composite pattern
-2023/09/22 21:19:55 b1-> l0-> l1-> b0-> l2-> l3
-Decorator pattern
-2023/09/22 21:19:55 Soldier stats: Attack(1) Defense(1)
-2023/09/22 21:19:55 Soldier stats: Attack(11) Defense(11)
-Decorator2 pattern
+---
+github.com/yenonn/learn-patterns/patterns.Builder
+2023/09/23 18:00:28 {24 180 brown}
+---
+github.com/yenonn/learn-patterns/patterns.ChainOfResponsibility
+2023/09/23 18:00:28 {4}
+2023/09/23 18:00:28 {6}
+2023/09/23 18:00:28 {4}
+---
+github.com/yenonn/learn-patterns/patterns.Composite
+2023/09/23 18:00:28 b1-> l0-> l1-> b0-> l2-> l3
+---
+github.com/yenonn/learn-patterns/patterns.Decorator
+2023/09/23 18:00:28 Soldier stats: Attack(1) Defense(1)
+2023/09/23 18:00:28 Soldier stats: Attack(11) Defense(11)
+---
+github.com/yenonn/learn-patterns/patterns.Decorator2
 Total calculate price: $155
-Facade pattern
-2023/09/22 21:19:55 true
-2023/09/22 21:19:55 false
-Memento pattern
-2023/09/22 21:19:55 display life point: 100
-2023/09/22 21:19:55 reducing: 75
-2023/09/22 21:19:55 reduced life point: 25
-2023/09/22 21:19:55 reducing: 50
-2023/09/22 21:19:55 reduced life point: -25
-2023/09/22 21:19:55 display life point: -25
-2023/09/22 21:19:55 Restore the saved person.
-2023/09/22 21:19:55 display life point: 25
-2023/09/22 21:19:55 Restore the saved person.
-2023/09/22 21:19:55 display life point: 100
-Observer pattern
-2023/09/22 21:19:55 ID: 123 received message: hello world
-2023/09/22 21:19:55 ID: 234 received message: hello world
-2023/09/22 21:19:55 Random ID: 56 received message: hello autogen
-2023/09/22 21:19:55 Random ID: 7 received message: hello autogen
-2023/09/22 21:19:55 Random ID: 53 received message: hello autogen
-2023/09/22 21:19:55 Random ID: 42 received message: hello autogen
-2023/09/22 21:19:55 Random ID: 79 received message: hello autogen
-2023/09/22 21:19:55 Random ID: 36 received message: hello autogen
-2023/09/22 21:19:55 Random ID: 43 received message: hello autogen
-2023/09/22 21:19:55 Random ID: 0 received message: hello autogen
-2023/09/22 21:19:55 Random ID: 58 received message: hello autogen
-2023/09/22 21:19:55 Random ID: 35 received message: hello autogen
+---
+github.com/yenonn/learn-patterns/patterns.Facade
+2023/09/23 18:00:28 true
+2023/09/23 18:00:28 false
+---
+github.com/yenonn/learn-patterns/patterns.Memento
+2023/09/23 18:00:28 display life point: 100
+2023/09/23 18:00:28 reducing: 75
+2023/09/23 18:00:28 reduced life point: 25
+2023/09/23 18:00:28 reducing: 50
+2023/09/23 18:00:28 reduced life point: -25
+2023/09/23 18:00:28 display life point: -25
+2023/09/23 18:00:28 Restore the saved person.
+2023/09/23 18:00:28 display life point: 25
+2023/09/23 18:00:28 Restore the saved person.
+2023/09/23 18:00:28 display life point: 100
+---
+github.com/yenonn/learn-patterns/patterns.Observer
+2023/09/23 18:00:28 ID: 123 received message: hello world
+2023/09/23 18:00:28 ID: 234 received message: hello world
+2023/09/23 18:00:28 Random ID: 36 received message: hello autogen
+2023/09/23 18:00:28 Random ID: 27 received message: hello autogen
+2023/09/23 18:00:28 Random ID: 96 received message: hello autogen
+2023/09/23 18:00:28 Random ID: 28 received message: hello autogen
+2023/09/23 18:00:28 Random ID: 98 received message: hello autogen
+2023/09/23 18:00:28 Random ID: 47 received message: hello autogen
+2023/09/23 18:00:28 Random ID: 74 received message: hello autogen
+2023/09/23 18:00:28 Random ID: 39 received message: hello autogen
+2023/09/23 18:00:28 Random ID: 25 received message: hello autogen
+2023/09/23 18:00:28 Random ID: 52 received message: hello autogen
+---
+github.com/yenonn/learn-patterns/patterns.Prototype
+2023/09/23 18:00:28 Publisher 902536f4-fb8c-4a74-b1e7-33687ee52b18 > hello
+2023/09/23 18:00:28 Publisher 902536f4-fb8c-4a74-b1e7-33687ee52b18 > hello from clone
+
 ```
