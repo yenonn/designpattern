@@ -9,7 +9,7 @@
 * pattern [Facade](/patterns/facade.go)
 * pattern [Memento](/patterns/memento.go)
 * pattern [Observer](/patterns/observer.go) 
-* pattern [Prototype](/patterns/prototype.go) 
+* pattern [Prototype](/patterns/observer.go) 
 
 ## output of the main.go
 ```bash
