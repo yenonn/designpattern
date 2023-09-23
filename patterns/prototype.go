@@ -12,37 +12,37 @@ type (
 		Clone() interface{}
 	}
 
-	ThePublisher interface {
+	IBroadcaster interface {
 		IPrototype
-		Publish(message string)
+		Broadcast(message string)
 	}
 )
 
-type MyPublisher struct {
+type MyBroadcaster struct {
 	id string
 }
 
-func NewMyPublisher() *MyPublisher {
-	return &MyPublisher{id: uuid.New().String()}
+func NewMyBroadcaster() *MyBroadcaster {
+	return &MyBroadcaster{id: uuid.New().String()}
 }
 
-func (pub *MyPublisher) Clone() interface{} {
-	return &MyPublisher{id: pub.id}
+func (b *MyBroadcaster) Clone() interface{} {
+	return &MyBroadcaster{id: b.id}
 }
 
-func (pub *MyPublisher) Publish(message string) {
-	fullMessage := fmt.Sprint("Publisher ", pub.id, " > ", message)
+func (b *MyBroadcaster) Broadcast(message string) {
+	fullMessage := fmt.Sprint("Publisher ", b.id, " > ", message)
 	log.Println(fullMessage)
 }
 
 func Prototype() {
-	publisher1 := NewMyPublisher()
-	run(publisher1, "hello")
+	b1 := NewMyBroadcaster()
+	run(b1, "hello")
 
-	publisher2 := publisher1.Clone().(ThePublisher)
-	run(publisher2, "hello from clone")
+	b2 := b1.Clone().(IBroadcaster)
+	run(b2, "hello from clone")
 }
 
-func run(publisher ThePublisher, message string) {
-	publisher.Publish(message)
+func run(broadcaster IBroadcaster, message string) {
+	broadcaster.Broadcast(message)
 }
