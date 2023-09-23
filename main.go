@@ -37,4 +37,7 @@ func main() {
 
 	fmt.Println("Observer pattern")
 	patterns.Observer()
+
+	fmt.Println("Prototype pattern")
+	patterns.Prototype()
 }
