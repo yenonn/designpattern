@@ -5,18 +5,23 @@ import (
 	"log"
 	"os"
 	"sync"
+	"time"
 )
 
-type Consumer struct{}
+type Consumer struct {
+	cachedDatabase cache
+}
 
-func (consumer Consumer) process(database IDatabase) {
-	database.Set(Input{
-		Id:      "1",
-		Content: "hello",
-	})
+func NewConsumer() *Consumer {
+	return &Consumer{cachedDatabase: *NewCache()}
+}
 
-	result := database.Get("1")
-	log.Println(result)
+func (consumer *Consumer) Save(input Input) {
+	consumer.cachedDatabase.Set(input)
+}
+
+func (consumer *Consumer) Get(id string) string {
+	return consumer.cachedDatabase.Get(id)
 }
 
 type IDatabase interface {
@@ -65,8 +70,46 @@ func (db *Database) Get(id string) string {
 	return "NA"
 }
 
+type cache struct {
+	database   Database
+	cacheddata map[string]cachedData
+}
+
+func NewCache() *cache {
+	return &cache{
+		database:   *NewDatabase("data/db.json"),
+		cacheddata: make(map[string]cachedData),
+	}
+}
+
+func (c *cache) Set(input Input) {
+	c.database.Set(input)
+}
+
+func (c *cache) Get(id string) string {
+	value, ok := c.cacheddata[id]
+	cacheExpiredButFound := ok && time.Now().After(value.ExpiredAt)
+	if !ok || cacheExpiredButFound {
+		// retrieve the content from database and cache it.
+		content := c.database.Get(id)
+		log.Printf("Cached value, %s", content)
+		c.cacheddata[id] = cachedData{
+			ExpiredAt: time.Now().Add(3 * time.Second),
+			Content:   content,
+		}
+	}
+	return value.Content
+}
+
+type cachedData struct {
+	ExpiredAt time.Time
+	Content   string
+}
+
 func Proxy() {
-	consumer := Consumer{}
-	db := NewDatabase("data/db.json")
-	consumer.process(db)
+	consumer := NewConsumer()
+	input := Input{Id: "1", Content: "hello"}
+	consumer.Save(input)
+	result := consumer.Get("2")
+	log.Print(result)
 }
