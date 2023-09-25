@@ -7,6 +7,7 @@ type IdServiceSingleton struct {
 }
 
 func (singleService *IdServiceSingleton) GetIdService() *IdService {
+	// singleton checks
 	if singleService.idService == nil {
 		singleService.idService = NewIdService()
 	}
