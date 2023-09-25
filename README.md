@@ -11,6 +11,7 @@
 * pattern [Observer](/patterns/observer.go) 
 * pattern [Prototype](/patterns/prototype.go) 
 * pattern [Proxy](/patterns/proxy.go) 
+* pattern [Singleton](/patterns/singleton.go) 
 
 ## output of the main.go
 ```bash
