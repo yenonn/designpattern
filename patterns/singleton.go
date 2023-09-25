@@ -43,4 +43,8 @@ func Singleton() {
 	s1 := singleton.GetIdService()
 	buildMotobike(s1.Next())
 	buildMotobike(s1.Next())
+
+	if s0 == s1 {
+		log.Print("s0 and s1 is the same")
+	}
 }
