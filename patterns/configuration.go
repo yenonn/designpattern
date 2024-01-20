@@ -34,10 +34,10 @@ func WithMaxConnections(maxConnections int) OptsFunc {
 	}
 }
 
-func NewServer(opts ...OptsFunc) *Server {
+func NewServer(optsFuncs ...OptsFunc) *Server {
 	defaultOpts := Opts{tls: false, id: "default", maxConnections: 1}
-	for _, opt := range opts {
-		opt(&defaultOpts)
+	for _, optsfunc := range optsFuncs {
+		optsfunc(&defaultOpts)
 	}
 	return &Server{opts: defaultOpts}
 }
